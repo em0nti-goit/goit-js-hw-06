@@ -15,14 +15,15 @@ const images = [
 
 const gallery = document.querySelector(".gallery");
 
-const galleryMarkup = images
-  .map(
-    ({ url, alt }) =>
-      `<li class="gallery__item card-set__item">
+const createGalleryMarkup = (arrOfImgAtribbute) => {
+  return arrOfImgAtribbute
+    .map(
+      ({ url, alt }) =>
+        `<li class="gallery__item card-set__item">
             <img class="gallery__img" src="${url}" alt="${alt}" />
        </li>`
-  )
-  .join("");
-
+    )
+    .join("");
+};
 gallery.classList.add("card-set");
-gallery.insertAdjacentHTML("beforeend", galleryMarkup);
+gallery.insertAdjacentHTML("beforeend", createGalleryMarkup(images));
